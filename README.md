@@ -7,6 +7,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/react-password-strometer)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-password-strometer)
 ![npm peer dependency version](https://img.shields.io/npm/dependency-version/react-password-strometer/peer/react)
+![npm dependency version](https://img.shields.io/npm/dependency-version/react-password-strometer/zxcvbn)
 
 ### React password strength meter component
 
