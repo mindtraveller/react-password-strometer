@@ -22,5 +22,6 @@ function PasswordStrometer(props) {
 }
 
 PasswordStrometer.propTypes = propTypes
+PasswordStrometer.displayName = 'PasswordStrometer'
 
 export default PasswordStrometer
