@@ -9,6 +9,34 @@
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
 </head>
 <body>
+<div id="app"></div>
 
+<script>
+  function App() {
+    const [password, setPassword] = React.useState('')
+
+    function handleChange(event) {
+      setPassword(event.target.value)
+    }
+
+    return React.createElement(
+      PasswordStrometer.default,
+      { password },
+      ({ passwordInfo }) => {
+        return React.createElement(
+          'div',
+          {},
+          React.createElement('input', { onChange: handleChange, value: password }),
+          passwordInfo && passwordInfo.score
+        )
+      }
+    )
+  }
+
+  ReactDOM.render(
+    React.createElement(App),
+    document.getElementById("app"),
+  )
+</script>
 </body>
 </html>

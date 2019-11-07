@@ -9,13 +9,17 @@ const common = require('./webpack.common.js')
 module.exports = webpackMerge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
+  output: {
+    library: 'PasswordStrometer',
+    libraryTarget: 'assign',
+  },
   plugins: [
     new webpack.ProgressPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HTMLPlugin({
       template: `public/index.html`,
       hash: true,
-      inject: true,
+      inject: 'head',
     }),
     new ErrorOverlayPlugin(),
   ],
