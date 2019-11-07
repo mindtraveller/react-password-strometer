@@ -23,7 +23,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'worker-loader',
-          options: { name: '[hash].worker.js' },
+          options: { name: '[hash].worker.js', inline: true, fallback: false },
         },
       },
     ],
