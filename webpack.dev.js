@@ -13,6 +13,9 @@ module.exports = webpackMerge(common, {
     library: 'PasswordStrometer',
     libraryTarget: 'assign',
   },
+  externals: {
+    react: 'React',
+  },
   plugins: [
     new webpack.ProgressPlugin(),
     new webpack.HotModuleReplacementPlugin(),

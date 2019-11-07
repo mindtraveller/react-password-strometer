@@ -5,6 +5,12 @@ const common = require('./webpack.common.js')
 
 module.exports = webpackMerge(common, {
   mode: 'production',
+  output: {
+    libraryTarget: 'commonjs'
+  },
+  externals: {
+    react: 'commonjs react',
+  },
   optimization: {
     minimizer: [
       new TerserJSPlugin({
