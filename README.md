@@ -1,6 +1,6 @@
 # react-password-strometer
 
-![npm](https://img.shields.io/npm/v/react-password-strometer?color=limegreen) 
+[![npm](https://img.shields.io/npm/v/react-password-strometer?color=limegreen)](https://www.npmjs.com/package/react-password-strometer)
 [![Build Status](https://travis-ci.org/Mindtraveller/react-password-strometer.svg?branch=master)](https://travis-ci.org/Mindtraveller/react-password-strometer)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Mindtraveller/react-password-strometer.svg)](https://greenkeeper.io/)
 
