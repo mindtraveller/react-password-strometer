@@ -1,0 +1,19 @@
+{
+  "name": "react-password-strength-meter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mindtraveller/react-password-strength-meter.git"
+  },
+  "author": "vladimir.penyazkov@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mindtraveller/react-password-strength-meter/issues"
+  },
+  "homepage": "https://github.com/Mindtraveller/react-password-strength-meter#readme"
+}
