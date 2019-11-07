@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const BundleAnalyzerPlugin = require('@bundle-analyzer/webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -35,6 +34,5 @@ module.exports = {
       React: 'react',
       PropTypes: 'prop-types',
     }),
-    new BundleAnalyzerPlugin({ token: process.env.BUNDLE_ANALYZER_TOKEN }),
   ],
 }

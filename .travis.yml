@@ -5,6 +5,7 @@ node_js:
 cache:
   directories:
     - node_modules
+    - dist # cache for bundlesize
 
 install:
   - npm install
@@ -15,7 +16,10 @@ jobs:
       script: npm test
     - stage: build
       script: npm run build
+    - stage: bundlesize
+      script: npm run bundlesize
 
 stages:
   - test
   - build
+  - bundlesize
