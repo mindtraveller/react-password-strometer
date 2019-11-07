@@ -1,13 +1,13 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
-    filename: '/js/[name].js',
-    chunkFilename: '/js/[name].[chunkhash:8].chunk.js',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
   },
   module: {
     rules: [
@@ -23,35 +23,20 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'worker-loader',
-          options: { name: '/js/[hash].worker.js' },
+          options: { name: 'js/[hash].worker.js' },
         },
       },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              minimize: true,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
-      }
     ],
+  },
+  externals: {
+    react: 'React',
+    'prop-types': 'PropTypes',
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '/css/[name].css',
-      chunkFilename: '/css/[name].[chunkhash:8].chunk.css',
+    new webpack.ProvidePlugin({
+      React: 'react',
+      PropTypes: 'prop-types',
     }),
   ],
 }
