@@ -6,8 +6,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
+    filename: '[name].js',
+    chunkFilename: '[name].[chunkhash:8].chunk.js',
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'worker-loader',
-          options: { name: 'js/[hash].worker.js' },
+          options: { name: '[hash].worker.js' },
         },
       },
     ],
