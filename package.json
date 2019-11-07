@@ -1,7 +1,13 @@
 {
   "name": "react-password-strometer",
   "version": "0.0.13",
-  "description": "",
+  "description": "React password strength meter.",
+  "keywords": [
+    "react",
+    "password strength meter",
+    "zxcvbn",
+    "web worker"
+  ],
   "main": "./dist/main.js",
   "files": [
     "dist"
