@@ -34,7 +34,7 @@ const password = 'some password';
 </Strometer>
 ````
 
-## Prop Types
+### Prop Types
 ````typescript
 {
     password: string,
