@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/Mindtraveller/react-password-strength-meter#readme",
   "dependencies": {
+    "prop-types": "15.7.2",
     "zxcvbn": "4.4.2"
   },
   "peerDependencies": {
-    "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
