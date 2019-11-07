@@ -1,6 +1,8 @@
 # react-password-strometer
 
-[![npm version](https://badge.fury.io/js/react-password-strometer.svg)](https://badge.fury.io/js/react-password-strometer) [![Greenkeeper badge](https://badges.greenkeeper.io/Mindtraveller/react-password-strometer.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/react-password-strometer.svg)](https://badge.fury.io/js/react-password-strometer) 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Mindtraveller/react-password-strometer.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/Mindtraveller/react-password-strometer.svg?branch=master)](https://travis-ci.org/Mindtraveller/react-password-strometer)
 
 ### React password strength meter component
 
