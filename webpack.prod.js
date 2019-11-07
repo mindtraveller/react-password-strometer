@@ -6,7 +6,8 @@ const common = require('./webpack.common.js')
 module.exports = webpackMerge(common, {
   mode: 'production',
   output: {
-    libraryTarget: 'commonjs'
+    libraryExport: 'default',
+    libraryTarget: 'commonjs2',
   },
   externals: {
     react: 'commonjs react',
