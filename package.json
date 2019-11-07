@@ -4,9 +4,9 @@
   "description": "React password strength meter.",
   "keywords": [
     "react",
-    "password strength meter",
+    "password-strength-meter",
     "zxcvbn",
-    "web worker"
+    "web-worker"
   ],
   "main": "./dist/main.js",
   "files": [
