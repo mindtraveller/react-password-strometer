@@ -2,11 +2,18 @@ name: Test workflow
 
 on: [push]
 
-steps:
-  - uses: actions/checkout@v1
-  - uses: actions/setup-node@v1
-    with:
-      node-version: 11.x
-  - run: npm install
-  - run: npm test
-  - run: npm run build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 11.x
+      - name: install
+        run: npm ci
+      - name: test
+        run: npm test
+      - name: build
+        run: npm run build
