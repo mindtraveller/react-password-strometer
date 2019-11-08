@@ -6,7 +6,8 @@ env:
   CI: true
 
 jobs:
-  build:
+  job1:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -14,12 +15,22 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 11.x
+
       - name: install
         run: npm ci
-      - name: test
-        run: npm test
+
       - name: build
         run: npm run build
+
+      - name: save bundles
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
+
+      - name: test
+        run: npm test
+
       - name: bundlesize
         env:
           BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
