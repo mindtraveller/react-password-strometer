@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "dist/**/*.js",
-      "maxSize": "405 kB",
+      "maxSize": "400 kB",
       "compression": "gzip"
     }
   ]
