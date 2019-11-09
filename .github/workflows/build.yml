@@ -62,13 +62,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-cachangelog-cache-1.16.2
+          key: ${{ runner.os }}-changelog-cache-1.16.2
 
       - name: Install auto-changelog
         run: npm i auto-changelog@1.16.2
 
       - name: Generate changelog
-        run: bash auto-changelog --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
+        run: ./node_modules/.bin/auto-changelog --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
 
       - name: Create release
         uses: softprops/action-gh-release@v1
