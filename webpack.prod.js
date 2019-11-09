@@ -11,6 +11,7 @@ module.exports = webpackMerge(common, {
   },
   externals: {
     react: 'commonjs react',
+    'prop-types': 'commonjs prop-types',
   },
   optimization: {
     minimizer: [

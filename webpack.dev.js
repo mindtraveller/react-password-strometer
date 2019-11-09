@@ -15,6 +15,7 @@ module.exports = webpackMerge(common, {
   },
   externals: {
     react: 'React',
+    'prop-types': 'PropTypes',
   },
   plugins: [
     new webpack.ProgressPlugin(),
