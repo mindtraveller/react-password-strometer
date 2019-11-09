@@ -53,10 +53,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 11.x
+        run: npm i auto-changelog
+
+      - name: Generate changelog
+        run: auto-changelog --starting-commit (git rev-list (git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
+
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: CHANGELOG.md
 
   job3:
     name: Publish npm release
