@@ -1,0 +1,19 @@
+name: build
+
+on:
+    pull_request:
+        types: [review_requested]
+
+jobs:
+  job1:
+    name: Notify reviewer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: send custom message with args
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: The ${{ github.event_name }} event triggered first step.
+
