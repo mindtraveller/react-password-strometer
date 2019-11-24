@@ -1,8 +1,8 @@
 name: pull_request_review
 
 on:
-    pull_request:
-        types: [review_requested]
+  pull_request:
+    types: [review_requested]
 
 jobs:
   job1:
@@ -15,8 +15,7 @@ jobs:
         with:
           to: ${{secrets.TELEGRAM_TO}}
           token: ${{secrets.TELEGRAM_TOKEN}}
-          format: markdown
           message: |
-            Review requested for _${{github.event.pull_request.title}}_.
-            Checkout it out [here](${{github.event.pull_request.html_url}}).
+            Review requested for `${{github.event.pull_request.title}}`.
+            Checkout it out: ${{github.event.pull_request.html_url}}.
 
