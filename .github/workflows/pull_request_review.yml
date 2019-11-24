@@ -17,5 +17,5 @@ jobs:
           token: ${{secrets.TELEGRAM_TOKEN}}
           message: |
             Pull Request assigned to you for review.
-            Checkout it out: ${{github.repository}}
+            Checkout it out: https://github.com/${{github.repository}}/pull/${{github.event.number}}
 
