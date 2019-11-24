@@ -1,0 +1,21 @@
+name: pull_request_review
+
+on:
+    pull_request:
+        types: [review_requested]
+
+jobs:
+  job1:
+    name: Notify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{secrets.TELEGRAM_TO}}
+          token: ${{secrets.TELEGRAM_TOKEN}}
+          message: |
+            Pull Request assigned to you for review.
+            Checkout it out: ${{github.repository}}
+
