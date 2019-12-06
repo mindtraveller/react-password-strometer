@@ -23,7 +23,7 @@
         - {{subject}} [`{{shorthash}}`]({{href}})
     {{/commit-list}}
 
-    {{#commit-list commits heading='### Commits'  message='\b(fix|fixed|Fix|Fixed)\b'}}
+    {{#commit-list commits heading='### Commits' exclude='\b(fix|fixed|Fix|Fixed)\b'}}
         - {{subject}} [`{{shorthash}}`]({{href}})
     {{/commit-list}}
 
