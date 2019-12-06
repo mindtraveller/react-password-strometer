@@ -68,10 +68,7 @@ jobs:
         run: npm i auto-changelog@1.16.2
 
       - name: Generate changelog
-        run: ./node_modules/.bin/auto-changelog \
-              --sort-commits date-desc \
-              --commit-limit false \
-              --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
+        run: ./node_modules/.bin/auto-changelog --sort-commits date-desc --commit-limit false --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
 
       - name: Create release
         uses: softprops/action-gh-release@v1
