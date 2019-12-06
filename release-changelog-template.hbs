@@ -1,26 +1,30 @@
 {{#each releases}}
-  {{#if summary}}
-    {{summary}}
-  {{/if}}
+    {{#if summary}}
+        {{summary}}
+    {{/if}}
 
-  {{#if merges}}
-    ### Merged
+    {{#if merges}}
+        ### Merged
 
-    {{#each merges}}
-      - {{message}} {{#if href}}[`#{{id}}`]({{href}}){{/if}}
-    {{/each}}
-  {{/if}}
+        {{#each merges}}
+            - {{message}} {{#if href}}[`#{{id}}`]({{href}}){{/if}}
+        {{/each}}
+    {{/if}}
 
-  {{#if fixes}}
-    ### Fixed
+    {{#if fixes}}
+        ### Fixed
 
-    {{#each fixes}}
-      - {{commit.subject}}{{#each fixes}} {{#if href}}[`#{{id}}`]({{href}}){{/if}}{{/each}}
-    {{/each}}
-  {{/if}}
+        {{#each fixes}}
+            - {{commit.subject}}{{#each fixes}} {{#if href}}[`#{{id}}`]({{href}}){{/if}}{{/each}}
+        {{/each}}
+    {{/if}}
 
-  {{#commit-list commits heading='### Commits'}}
-    - {{#if breaking}}**Breaking change:** {{/if}}{{subject}} {{#if href}}[`{{shorthash}}`]({{href}}){{/if}}
-  {{/commit-list}}
+    {{#commit-list commits heading='### Fixes' message='\b(fix|fixed|Fix|Fixed)\b'}}
+        - {{subject}} [`{{shorthash}}`]({{href}})
+    {{/commit-list}}
+
+    {{#commit-list commits heading='### Commits'  message='\b(fix|fixed|Fix|Fixed)\b'}}
+        - {{subject}} [`{{shorthash}}`]({{href}})
+    {{/commit-list}}
 
 {{/each}}
