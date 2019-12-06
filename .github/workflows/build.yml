@@ -61,7 +61,7 @@ jobs:
       - name: Init cache
         uses: actions/cache@v1
         with:
-          path: node_modules
+          path: ~/.npm
           key: ${{ runner.os }}-changelog-cache-1.16.2
 
       - name: Install auto-changelog
