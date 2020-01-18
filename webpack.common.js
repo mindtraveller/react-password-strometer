@@ -1,38 +1,26 @@
 const path = require('path')
-const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve('dist'),
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash:8].chunk.js',
   },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.worker\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'worker-loader',
-          options: { name: '[hash].worker.js', inline: true, fallback: false },
-        },
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.ProvidePlugin({
-      React: 'react',
-      PropTypes: 'prop-types',
-    }),
   ],
 }
