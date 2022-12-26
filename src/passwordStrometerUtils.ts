@@ -1,6 +1,6 @@
-import Worker from 'worker-loader!./passwordStrometer.worker';
+import zxcvbn from "zxcvbn";
 
-const worker = new Worker();
+const worker = new Worker(new URL('./passwordStrometer.worker.ts', import.meta.url));
 
 const handlers: Array<(result?: zxcvbn.ZXCVBNResult) => void> = [];
 

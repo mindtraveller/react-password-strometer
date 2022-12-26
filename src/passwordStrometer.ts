@@ -1,4 +1,5 @@
 import React from 'react';
+import zxcvbn from 'zxcvbn'
 import { calculatePasswordInfo } from './passwordStrometerUtils';
 
 export type PasswordInfo = zxcvbn.ZXCVBNResult | null
