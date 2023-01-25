@@ -14,7 +14,7 @@
 This library provides a React wrapper around [zxcvbn][https://github.com/dropbox/zxcvbn]. 
 Password strength calculations are performed in separate Web Worker, since it may take relatively big time and block main thread. 
 
-## [Demo][https://codesandbox.io/s/quizzical-maxwell-9kvc2?fontsize=14]
+## [Demo](https://codesandbox.io/s/react-password-strometer-demo-9kvc2)
 
 ## Examples
 
