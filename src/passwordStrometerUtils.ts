@@ -1,6 +1,9 @@
 import zxcvbn from 'zxcvbn';
 
-const worker = new Worker(/* webpackChunkName: "worker" */ new URL('./passwordStrometer.worker.ts', import.meta.url));
+// @ts-ignore
+import Worker from './passwordStrometer.worker.js';
+
+const worker = new Worker();
 
 const handlers: Array<(result?: zxcvbn.ZXCVBNResult) => void> = [];
 
