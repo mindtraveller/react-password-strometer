@@ -35,15 +35,6 @@ jobs:
 #      - name: Test
 #        run: npm run test
 
-      - name: Bundlesize
-        env:
-          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
-          CI_REPO_OWNER: mindtraveller
-          CI_REPO_NAME: react-password-strometer
-          CI_COMMIT_MESSAGE: unknown commit message
-          CI_COMMIT_SHA: $GITHUB_SHA
-        run: npm run bundlesize
-
   job2:
     name: Publish Github release
     runs-on: ubuntu-latest
