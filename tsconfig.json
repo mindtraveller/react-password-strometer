@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "allowJs": false,
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react",
+    "strictNullChecks": true,
+    "lib": [
+      "webworker"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
+  }
+}
