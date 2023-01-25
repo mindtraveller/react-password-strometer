@@ -5,15 +5,6 @@ const common = require('./webpack.common.js')
 
 module.exports = webpackMerge.merge(common, {
   mode: 'production',
-  target: 'web',
-  output: {
-    library: 'PasswordStrometer',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-  },
-  externals: {
-    react: 'commonjs react',
-  },
   optimization: {
     minimizer: [
       new TerserJSPlugin({

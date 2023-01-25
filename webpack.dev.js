@@ -6,16 +6,9 @@ const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 const common = require('./webpack.common.js')
 
-module.exports = webpackMerge(common, {
+module.exports = webpackMerge.merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
-  output: {
-    library: 'PasswordStrometer',
-    libraryTarget: 'assign',
-  },
-  externals: {
-    react: 'React',
-  },
   plugins: [
     new webpack.ProgressPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -23,16 +16,18 @@ module.exports = webpackMerge(common, {
       template: `public/index.html`,
       hash: true,
       inject: 'head',
+      scriptLoading: 'blocking',
     }),
     new ErrorOverlayPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     compress: true,
     open: false,
     port: 9000,
     hot: true,
-    disableHostCheck: true,
     host: '0.0.0.0',
   },
 })

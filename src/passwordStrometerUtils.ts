@@ -1,4 +1,4 @@
-import zxcvbn from "zxcvbn";
+import zxcvbn from 'zxcvbn';
 
 const worker = new Worker(new URL('./passwordStrometer.worker.ts', import.meta.url));
 

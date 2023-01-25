@@ -4,10 +4,17 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.ts',
+  target: 'web',
   output: {
     path: path.resolve('dist'),
     filename: 'index.js',
     chunkFilename: '[name].[chunkhash:8].chunk.js',
+    library: 'PasswordStrometer',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+  },
+  externals: {
+    react: 'React',
   },
   resolve: {
     extensions: ['.ts', '.js'],
