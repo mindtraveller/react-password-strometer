@@ -5,9 +5,11 @@ const common = require('./webpack.common.js')
 
 module.exports = webpackMerge.merge(common, {
   mode: 'production',
+  target: 'web',
   output: {
-    libraryExport: 'default',
-    libraryTarget: 'commonjs2',
+    library: 'PasswordStrometer',
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
   externals: {
     react: 'commonjs react',
