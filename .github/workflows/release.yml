@@ -1,0 +1,90 @@
+name: release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
+
+env:
+  CI: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+  job2:
+    name: Publish Github release
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+
+      - name: Install auto-changelog
+        run: npm i auto-changelog@1.16.4
+
+      - name: Generate changelog
+        run: ./node_modules/.bin/auto-changelog --sort-commits date-desc --commit-limit false --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: CHANGELOG.md
+
+  job3:
+    name: Publish NPM release
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Download bundle
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
