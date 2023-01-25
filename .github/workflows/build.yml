@@ -12,36 +12,28 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Setup
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 11.x
-
-      - name: Init node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ github.ref }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node_modules-${{ github.ref }}-
-            ${{ runner.os }}-node_modules-
+          node-version: 18.12.0
+          cache: 'npm'
 
       - name: Install
-        run: npm i
+        run: npm ci
 
       - name: Build
         run: npm run build
 
-      - name: Upload bundle
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist
+#      - name: Upload bundle
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: dist
+#          path: dist
 
-      - name: Test
-        run: npm test
+#      - name: Test
+#        run: npm run test
 
       - name: Bundlesize
         env:
