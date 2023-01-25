@@ -1,6 +1,6 @@
 {
   "name": "react-password-strometer",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.6",
   "description": "React password strength meter.",
   "keywords": [
     "react",
