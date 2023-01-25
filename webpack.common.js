@@ -8,13 +8,18 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'index.js',
-    chunkFilename: '[name].[chunkhash:8].chunk.js',
+    chunkFilename: '[name].js',
     library: 'PasswordStrometer',
     libraryTarget: 'umd',
     globalObject: 'this',
   },
   externals: {
-    react: 'React',
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+    },
   },
   resolve: {
     extensions: ['.ts', '.js'],
