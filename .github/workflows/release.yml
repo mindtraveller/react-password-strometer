@@ -36,7 +36,6 @@ jobs:
   publish_npm_release:
     name: Publish NPM release
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v3
