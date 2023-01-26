@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup
         uses: actions/setup-node@v3
@@ -24,7 +26,7 @@ jobs:
         run: npm i auto-changelog@1.16.4
 
       - name: Generate changelog
-        run: ./node_modules/.bin/auto-changelog --sort-commits date-desc --commit-limit false --starting-commit $(git rev-list $(git tag --sort=-v:refname | sed -n '2 p').. | tail -1)
+        run: ./node_modules/.bin/auto-changelog --sort-commits date-desc --commit-limit false --starting-commit $(git rev-list $(git tag --sort=-v:refname | grep 'v[0-9].[0-9].[0-9]$' | sed -n '2 p').. | tail -1)
 
       - name: Create release
         uses: softprops/action-gh-release@v1
