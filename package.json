@@ -40,7 +40,7 @@
     "@types/react-dom": "16.9.4",
     "@types/zxcvbn": "4.4.1",
     "bundle-declarations-webpack-plugin": "4.0.1",
-    "clean-webpack-plugin": "3.0.0",
+    "clean-webpack-plugin": "4.0.0",
     "error-overlay-webpack-plugin": "1.1.1",
     "html-webpack-plugin": "5.5.0",
     "terser-webpack-plugin": "5.3.7",
