@@ -36,7 +36,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@types/react": "16.9.17",
+    "@types/react": "18.2.0",
     "@types/react-dom": "16.9.4",
     "@types/zxcvbn": "4.4.1",
     "bundle-declarations-webpack-plugin": "4.0.1",
